@@ -1,0 +1,7 @@
+<div class="list-group-item">
+  <img *ngIf="imgUrl" [src]="imgUrl" class="rounded-circle" width="48">
+  <span class="text-info col">{{text}}</span>
+  <button class="btn btn-default" (click)="clicked.emit()">
+    <i class="fa fa-caret-right"></i>
+  </button>
+</div>

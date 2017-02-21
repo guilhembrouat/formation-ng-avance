@@ -1,0 +1,9 @@
+<app-ui-list title="Users">
+  <app-ui-list-item
+    *ngFor="let user of users"
+    [text]="user.login"
+    [imgUrl]="user.avatar_url"
+    (clicked)="gotoUser(user)"
+  ></app-ui-list-item>
+</app-ui-list>
+

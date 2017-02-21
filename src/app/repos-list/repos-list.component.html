@@ -1,0 +1,8 @@
+<app-ui-list title="{{login}}'s repositories'">
+  <app-ui-list-item
+    *ngFor="let repo of repos"
+    [text]="repo.name"
+    (clicked)="gotoRepo(repo)"
+  ></app-ui-list-item>
+</app-ui-list>
+
