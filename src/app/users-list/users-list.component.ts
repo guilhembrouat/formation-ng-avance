@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { GithubService } from '../github.service';
 import { User } from '../user';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-list',
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  users: User[]
+  users: Observable<User[]>
 
   constructor(
     private github: GithubService,
@@ -18,8 +19,7 @@ export class UsersListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.github.getRandomUsers()
-      .subscribe(users => this.users = users)
+    this.users = this.github.getRandomUsers()
   }
 
   gotoUser(user: User) {
